@@ -15,7 +15,8 @@ const ec = new EC('secp256k1');
 //const signature = {  r: "",s: "" };
 
 
-async function verify(msgHash, signature){
+async function verify(msgHash, signature, senderPubkey){
+  const key = ec.keyFromPublic(senderPubkey, 'hex');
   const verifySignature = key.verify(msgHash, signature);
   console.log(key.verify(msgHash, signature));
   return verifySignature;

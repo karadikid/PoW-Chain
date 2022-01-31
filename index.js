@@ -29,11 +29,12 @@ app.post('/', (req, res) => {
   }
   if (method === 'sendTransaction') {
     const  {senderPubkey, privateKey, message, recipient} = req.body;
-    console.log(senderPubkey, privateKey, message, recipient)
-    //sign(privateKey, message);
+    //console.log(senderPubkey, privateKey, message, recipient)
+    let signHash = sign(privateKey, message);
+    let verified = verify(signHash[1], signHash[0], senderPubkey);
     //verify([sign(privateKey, message)]);
     sendTransaction(message);
-    res.send({ amountSent: message });
+    res.send({ amountSent: message, signature: verified });
     return;
   }
   if (method === "getBalance") {
