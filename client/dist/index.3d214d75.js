@@ -582,7 +582,7 @@ document.getElementById("stop-mining").addEventListener('click', ()=>{
 document.getElementById("transfer-amount").addEventListener('click', ()=>{
     const senderPubkey = document.getElementById("exchange-address").value.defaultValue = _config.PUBLIC_KEY;
     const sender = document.getElementById("private-key").value.defaultValue = _config.PRIVATE_KEY;
-    const amount = document.getElementById("send-amount").value;
+    const amount1 = document.getElementById("send-amount").value;
     const recipient = document.getElementById("recipient").value;
     const request = new Request(`${server}`, {
         method: 'POST',
@@ -592,15 +592,15 @@ document.getElementById("transfer-amount").addEventListener('click', ()=>{
         body: JSON.stringify({
             senderPubkey,
             sender,
-            amount,
+            amount: amount1,
             recipient,
             method: 'sendTransaction'
         })
     });
     fetch(request).then((response)=>{
         return response.json();
-    }).then(({ blockNumber  })=>{
-        alert(`Transaction Sent ${blockNumber}`);
+    }).then(({ amount  })=>{
+        alert(`Transaction Sent ${amount}`);
     });
 });
 

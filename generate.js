@@ -6,6 +6,5 @@ const key = ec.genKeyPair();
 
 console.log({
   privateKey: key.getPrivate().toString(16),
-  publicX: key.getPublic().x.toString(16),
-  publicY: key.getPublic().y.toString(16),
+  publicKey: key.getPublic().encode('hex'),
 });

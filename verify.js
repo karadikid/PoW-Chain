@@ -5,8 +5,7 @@ const ec = new EC('secp256k1');
 
 // TODO: fill in the public key points
 const publicKey = {
-  x: "",
-  y: ""
+  "",
 }
 
 const key = ec.keyFromPublic(publicKey, 'hex');

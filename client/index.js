@@ -1,5 +1,4 @@
 import "./index.scss";
-import "../config";
 import { PRIVATE_KEY, PUBLIC_KEY } from "../config";
 
 const server = "http://localhost:3032";
@@ -85,7 +84,7 @@ document.getElementById("transfer-amount").addEventListener('click', () => {
   fetch(request)
     .then(response => {
       return response.json();
-    }).then(({ blockNumber }) => {
-      alert(`Transaction Sent ${blockNumber}`);
+    }).then(({ amount }) => {
+      alert(`Transaction Sent ${amount}`);
     });
 });

@@ -20,7 +20,7 @@ function stopMining() {
 }
 
 function sendTransaction(){
-  //new Transaction() = [];
+ const sentTransaction = new Transaction([amount], [amount])
   mempool.push();
 }
 

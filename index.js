@@ -1,9 +1,13 @@
 const { startMining, stopMining, sendTransaction, } = require('./mine');
+const { sign } = require('./sign');
+const { verify } = require(verify);
+const { generate } = require(generate);
 const { PORT } = require('./config');
 const { utxos, blockchain } = require('./db');
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const req = require('express/lib/request');
 
 // localhost can have cross origin errors
 // depending on the browser you use!
@@ -23,6 +27,8 @@ app.post('/', (req, res) => {
     return;
   }
   if (method === 'sendTransaction') {
+    sign(privateKey = sender, message = amount);
+    verify();
     sendTransaction();
     res.send({ blockNumber: blockchain.blockHeight() });
     return;
