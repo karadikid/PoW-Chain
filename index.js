@@ -30,9 +30,9 @@ app.post('/', (req, res) => {
   if (method === 'sendTransaction') {
     const  {privateKey, sender, recipient, message} = req.body;
     console.log(privateKey, sender, recipient, message)
-    sign(privateKey, message);
-    verify([sign(privateKey, message)]);
-    sendTransaction();
+    //sign(privateKey, message);
+    //verify([sign(privateKey, message)]);
+    sendTransaction(message);
     res.send({ blockNumber: blockchain.blockHeight() });
     return;
   }

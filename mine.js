@@ -19,8 +19,11 @@ function stopMining() {
   mining = false;
 }
 
-function sendTransaction(){
- const sentTransaction = new Transaction([amount], [amount])
+function sendTransaction(message){
+//sign transaction with privateKey
+//verify transaction from signature and publicKey input
+
+ const sentTransaction = new Transaction([message], [message])
   mempool.push();
 }
 
