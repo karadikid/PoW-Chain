@@ -28,8 +28,8 @@ app.post('/', (req, res) => {
     return;
   }
   if (method === 'sendTransaction') {
-    const  {privateKey, sender, recipient, message} = req.body;
-    console.log(privateKey, sender, recipient, message)
+    const  {senderPubkey, privateKey, message, recipient} = req.body;
+    console.log(senderPubkey, privateKey, message, recipient)
     //sign(privateKey, message);
     //verify([sign(privateKey, message)]);
     sendTransaction(message);

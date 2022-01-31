@@ -579,7 +579,7 @@ document.getElementById("stop-mining").addEventListener('click', ()=>{
         alert(`Stopped @ block ${blockNumber}`);
     });
 });
-document.getElementById("transfer-amount").addEventListener('click', ()=>{
+document.getElementById("send-tx").addEventListener('click', ()=>{
     const senderPubkey = document.getElementById("exchange-address").value;
     const privateKey = document.getElementById("private-key").value;
     const message1 = document.getElementById("send-amount").value;

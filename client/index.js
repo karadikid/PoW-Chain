@@ -64,7 +64,7 @@ document.getElementById("stop-mining").addEventListener('click', () => {
 
 
 });
-document.getElementById("transfer-amount").addEventListener('click', () => {
+document.getElementById("send-tx").addEventListener('click', () => {
   const senderPubkey = document.getElementById("exchange-address").value;
   const privateKey = document.getElementById("private-key").value;
   const message = document.getElementById("send-amount").value;
