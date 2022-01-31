@@ -1,4 +1,6 @@
 import "./index.scss";
+import "../config";
+import { PRIVATE_KEY, PUBLIC_KEY } from "../config";
 
 const server = "http://localhost:3032";
 
@@ -64,8 +66,8 @@ document.getElementById("stop-mining").addEventListener('click', () => {
 
 });
 document.getElementById("transfer-amount").addEventListener('click', () => {
-  const senderPubkey = document.getElementById("exchange-address").value;
-  const sender = document.getElementById("private-key").value;
+  const senderPubkey = document.getElementById("exchange-address").value.defaultValue = PUBLIC_KEY;
+  const sender = document.getElementById("private-key").value.defaultValue = PRIVATE_KEY;
   const amount = document.getElementById("send-amount").value;
   const recipient = document.getElementById("recipient").value;
 
@@ -84,6 +86,6 @@ document.getElementById("transfer-amount").addEventListener('click', () => {
     .then(response => {
       return response.json();
     }).then(({ blockNumber }) => {
-      alert(`Started @ block ${blockNumber}`);
+      alert(`Transaction Sent ${blockNumber}`);
     });
 });

@@ -20,6 +20,7 @@ function stopMining() {
 }
 
 function sendTransaction(){
+  //new Transaction() = [];
   mempool.push();
 }
 
@@ -50,4 +51,5 @@ function mine() {
 module.exports = {
   startMining,
   stopMining,
+  sendTransaction,
 };

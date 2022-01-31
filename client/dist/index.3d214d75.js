@@ -520,6 +520,7 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"bB7Pu":[function(require,module,exports) {
 var _indexScss = require("./index.scss");
+var _config = require("../config");
 const server = "http://localhost:3032";
 //`${server}`
 function getBalance() {
@@ -579,8 +580,8 @@ document.getElementById("stop-mining").addEventListener('click', ()=>{
     });
 });
 document.getElementById("transfer-amount").addEventListener('click', ()=>{
-    const senderPubkey = document.getElementById("exchange-address").value;
-    const sender = document.getElementById("private-key").value;
+    const senderPubkey = document.getElementById("exchange-address").value.defaultValue = _config.PUBLIC_KEY;
+    const sender = document.getElementById("private-key").value.defaultValue = _config.PRIVATE_KEY;
     const amount = document.getElementById("send-amount").value;
     const recipient = document.getElementById("recipient").value;
     const request = new Request(`${server}`, {
@@ -599,10 +600,17 @@ document.getElementById("transfer-amount").addEventListener('click', ()=>{
     fetch(request).then((response)=>{
         return response.json();
     }).then(({ blockNumber  })=>{
-        alert(`Started @ block ${blockNumber}`);
+        alert(`Transaction Sent ${blockNumber}`);
     });
 });
 
-},{"./index.scss":"93cso"}],"93cso":[function() {},{}]},["93tMe","bB7Pu"], "bB7Pu", "parcelRequire94c2")
+},{"./index.scss":"93cso","../config":"2q2du"}],"93cso":[function() {},{}],"2q2du":[function(require,module,exports) {
+module.exports = {
+    PORT: 3032,
+    PUBLIC_KEY: "049a1bad614bcd85b5f5c36703ebe94adbfef7af163b39a9dd3ddbc4f286820031dfcb3cd9b3d2fcbaec56ff95b0178b75d042968462fbfe3d604e02357125ded5",
+    PRIVATE_KEY: "ce54949c332aec9df174d3eec6ff4f3c1662d7eb3ba4522a301069ca94c2e3bd"
+};
+
+},{}]},["93tMe","bB7Pu"], "bB7Pu", "parcelRequire94c2")
 
 //# sourceMappingURL=index.3d214d75.js.map
