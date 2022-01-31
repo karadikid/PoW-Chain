@@ -84,7 +84,7 @@ document.getElementById("send-tx").addEventListener('click', () => {
   fetch(request)
     .then(response => {
       return response.json();
-    }).then(({ message }) => {
+    }).then(({ amountSent }) => {
       alert(`Transaction Sent ${message}`);
     });
 });

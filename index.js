@@ -33,7 +33,7 @@ app.post('/', (req, res) => {
     //sign(privateKey, message);
     //verify([sign(privateKey, message)]);
     sendTransaction(message);
-    res.send({ blockNumber: blockchain.blockHeight() });
+    res.send({ amountSent: message });
     return;
   }
   if (method === "getBalance") {

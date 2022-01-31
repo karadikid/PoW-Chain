@@ -582,7 +582,7 @@ document.getElementById("stop-mining").addEventListener('click', ()=>{
 document.getElementById("send-tx").addEventListener('click', ()=>{
     const senderPubkey = document.getElementById("exchange-address").value;
     const privateKey = document.getElementById("private-key").value;
-    const message1 = document.getElementById("send-amount").value;
+    const message = document.getElementById("send-amount").value;
     const recipient = document.getElementById("recipient").value;
     const request = new Request(`${server}`, {
         method: 'POST',
@@ -592,14 +592,14 @@ document.getElementById("send-tx").addEventListener('click', ()=>{
         body: JSON.stringify({
             senderPubkey,
             privateKey,
-            message: message1,
+            message,
             recipient,
             method: 'sendTransaction'
         })
     });
     fetch(request).then((response)=>{
         return response.json();
-    }).then(({ message  })=>{
+    }).then(({ amountSent  })=>{
         alert(`Transaction Sent ${message}`);
     });
 });
