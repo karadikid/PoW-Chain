@@ -65,9 +65,9 @@ document.getElementById("stop-mining").addEventListener('click', () => {
 
 });
 document.getElementById("transfer-amount").addEventListener('click', () => {
-  const senderPubkey = document.getElementById("exchange-address").value.defaultValue = PUBLIC_KEY;
-  const sender = document.getElementById("private-key").value.defaultValue = PRIVATE_KEY;
-  const amount = document.getElementById("send-amount").value;
+  const senderPubkey = document.getElementById("exchange-address").value;
+  const privateKey = document.getElementById("private-key").value;
+  const message = document.getElementById("send-amount").value;
   const recipient = document.getElementById("recipient").value;
 
   const request = new Request(`${server}`, {
@@ -75,8 +75,8 @@ document.getElementById("transfer-amount").addEventListener('click', () => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       senderPubkey,
-      sender,
-      amount,
+      privateKey,
+      message,
       recipient,
       method: 'sendTransaction'
     })

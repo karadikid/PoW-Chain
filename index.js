@@ -1,7 +1,7 @@
 const { startMining, stopMining, sendTransaction, } = require('./mine');
 const { sign } = require('./sign');
-const { verify } = require(verify);
-const { generate } = require(generate);
+const { verify } = require('./verify');
+//const { generate } = require("./generate");
 const { PORT } = require('./config');
 const { utxos, blockchain } = require('./db');
 const express = require('express');
@@ -29,8 +29,8 @@ app.post('/', (req, res) => {
   }
   if (method === 'sendTransaction') {
     console.log(privateKey, sender, recipient, amount)
-    sign(privateKey = sender, message = amount);
-    //verify();
+    sign(privateKey, message);
+    verify([sign(orivateKey, message)]);
     sendTransaction();
     res.send({ blockNumber: blockchain.blockHeight() });
     return;

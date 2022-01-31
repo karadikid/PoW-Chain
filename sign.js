@@ -21,6 +21,7 @@ async function sign(privateKey, message){
   const key = ec.keyFromPrivate(privateKey);
   const msgHash = SHA256(message);
   const signature = key.sign(msgHash.toString());
+  console.log(signature, msgHash)
   return [signature, msgHash]
 }
 
