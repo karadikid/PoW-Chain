@@ -6,6 +6,7 @@ const {PUBLIC_KEY} = require('./config');
 const TARGET_DIFFICULTY = BigInt("0x0" + "F".repeat(63));
 const BLOCK_REWARD = 10;
 
+
 let mining = true;
 mine();
 
