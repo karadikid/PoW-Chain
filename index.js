@@ -8,6 +8,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const req = require('express/lib/request');
+const { send } = require('express/lib/response');
 
 // localhost can have cross origin errors
 // depending on the browser you use!
@@ -27,8 +28,9 @@ app.post('/', (req, res) => {
     return;
   }
   if (method === 'sendTransaction') {
+    console.log(privateKey, sender, recipient, amount)
     sign(privateKey = sender, message = amount);
-    verify();
+    //verify();
     sendTransaction();
     res.send({ blockNumber: blockchain.blockHeight() });
     return;

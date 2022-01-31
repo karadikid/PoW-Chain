@@ -3,7 +3,7 @@ const SHA256 = require('crypto-js/sha256');
 const ec = new EC('secp256k1');
 
 // TODO: fill in your hex private key
-const privateKey = "";
+//const privateKey = "";
 
 //const key = ec.keyFromPrivate(privateKey);
 
@@ -16,7 +16,8 @@ const privateKey = "";
 
 //return signature;
 
-function sign(privateKey, message){
+
+async function sign(privateKey, message){
   const key = ec.keyFromPrivate(privateKey);
   const msgHash = SHA256(message);
   const signature = key.sign(msgHash.toString());
@@ -24,13 +25,6 @@ function sign(privateKey, message){
 }
 
 
-console.log({
-  //message,
-  signature: {
-    r: signature.r.toString(16),
-    s: signature.s.toString(16)
-  }
-});
 
 module.exports = {
   sign,
