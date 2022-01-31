@@ -84,7 +84,7 @@ document.getElementById("transfer-amount").addEventListener('click', () => {
   fetch(request)
     .then(response => {
       return response.json();
-    }).then(({ amount }) => {
-      alert(`Transaction Sent ${amount}`);
+    }).then(({ message }) => {
+      alert(`Transaction Sent ${message}`);
     });
 });
